@@ -1,19 +1,46 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
-  const handleLogIn = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-
-    console.log(email, password);
-  };
+    const { logInUser, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [error, setError] = useState(null);
+  
+    const handleLogIn = (e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+  
+      logInUser(email, password)
+        .then((result) => {
+          console.log(result.user);
+          navigate(location?.state ? location.state : "/");
+  
+        })
+        .catch((error) => {
+          setError("Invalid email or password. Please try again.");
+          console.error(error);
+        });
+    };
+  
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+        .then((result) => {
+          console.log(result.user);
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    };
   return (
     <div className="min-w-screen flex items-center justify-center">
     <div className="relative flex flex-col rounded-xl bg-gradient-to-r  from-pink-500 to-red-500 text-black shadow-lg p-8">
-      <h4 className="ml-14 text-4xl font-bold text-white ">
-        LogIn Now!!
+      <h4 className="ml-20 text-4xl font-bold text-white ">
+        Login Now!!
       </h4>
       <form onSubmit={handleLogIn} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96">
         <div className="mb-4 flex flex-col gap-6">
@@ -46,8 +73,8 @@ const Login = () => {
           <div className="form-control mt-6">
           <button className="btn btn-primary bg-gradient-to-r from-purple-500 to-pink-500 hover:from-red-400 hover:to-purple-500 transform hover:scale-105 focus:outline-none focus:ring focus:ring-purple-300 focus:ring-opacity-50 text-xl font-semibold">Login</button>
           </div> 
-
         </div>
+        {error && <p className="text-red-700 mt-2">{error}</p>}
         </form>
         <p className="mt-2 block text-center font-sans text-base font-normal leading-relaxed text-white antialiased">
           Don't Have an Account? 
@@ -60,7 +87,7 @@ const Login = () => {
         </p>
         <h4 className="text-xl font-semibold text-white text-center mb-2"> Or Login With</h4>
               <p>
-                 <button className="btn glass btn-wide ml-16">
+                 <button onClick={handleGoogleSignIn} className="btn glass btn-wide ml-16">
                   Google
                 </button>
               </p>
