@@ -12,29 +12,29 @@ const Navbar = () => {
   //   };
   const navLinks = (
     <>
-      <li className="font-bold  text-green-300">
+      <li className="font-bold  text-green-500">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-green-600 underline" : ""
+            isPending ? "pending" : isActive ? "text-black underline" : ""
           }
         >
           {" "}
           Home
         </NavLink>
       </li>
-      <li className="font-bold  text-green-300">
+      <li className="font-bold  text-green-500">
         <NavLink
           to="/addProduct"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "bg-green-600 underline" : ""
+            isPending ? "pending" : isActive ? "text-black underline" : ""
           }
         >
           {" "}
           Add job
         </NavLink>
       </li>
-      <li className="font-bold  text-green-300">
+      <li className="font-bold  text-green-500">
         <NavLink
           to="/myCart"
           className={({ isActive, isPending }) =>
@@ -44,7 +44,7 @@ const Navbar = () => {
           My posted jobs
         </NavLink>
       </li>
-      <li className="font-bold  text-green-300">
+      <li className="font-bold  text-green-500">
         <NavLink
           to="/myCart"
           className={({ isActive, isPending }) =>
@@ -54,7 +54,7 @@ const Navbar = () => {
           My Bids
         </NavLink>
       </li>
-      <li className="font-bold  text-green-300">
+      <li className="font-bold  text-green-500">
         <NavLink
           to="/myCart"
           className={({ isActive, isPending }) =>
@@ -63,7 +63,7 @@ const Navbar = () => {
           Bid Requests
         </NavLink>
       </li>
-      <li className="font-bold text-green-300">
+      <li className="font-bold text-green-500">
         <NavLink
           to="/login"
           className={({ isActive, isPending }) =>
