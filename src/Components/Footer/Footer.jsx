@@ -21,9 +21,11 @@ const Footer = () => {
           <a className="link link-hover">Github</a>
         </nav>
         <div>
-          <h2 className="text-3xl mr-24 footer-title font-semibold">
+          <h2 className="text-3xl -mt-3 mr-24 footer-title font-semibold">
             {" "}
             Our Address
+            <br />
+            & Contact Us
           </h2>
             <h3>
               Leo Digital 7th Floor Miami,

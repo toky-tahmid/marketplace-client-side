@@ -1,16 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 
-import logo from "../../assets/994503c0b499b5ca969a0c410582af2c8ee67735-731x731-removebg-preview.png"
+import logo from "../../assets/994503c0b499b5ca969a0c410582af2c8ee67735-731x731-removebg-preview.png";
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
-    const { user, logOut } = useContext(AuthContext);
-    const handleLogOut = () => {
-      logOut()
-        .then(() => console.log("logged out"))
-        .catch((error) => console.error(error));
-    };
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => console.log("logged out"))
+      .catch((error) => console.error(error));
+  };
   const navLinks = (
     <>
       <li className="font-bold  text-green-500">
@@ -60,7 +60,8 @@ const Navbar = () => {
           to="/myCart"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black underline" : ""
-          }>
+          }
+        >
           Bid Requests
         </NavLink>
       </li>
@@ -79,11 +80,7 @@ const Navbar = () => {
   return (
     <div className="navbar -mt-20 bg-base-100">
       <div className="navbar-start">
-        <img
-          className="w-52 h-64"
-          src={logo}
-          alt=""
-        />
+        <img className="w-52 h-64" src={logo} alt="" />
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
@@ -127,7 +124,9 @@ const Navbar = () => {
           </button>
         ) : (
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className=" hover:bg-green-300 text-green-400 font-bold py-3 px-4 border border-white rounded-full transition duration-300 ease-in-out">
+              Login
+            </button>
           </Link>
         )}
       </div>
