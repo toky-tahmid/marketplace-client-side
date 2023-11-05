@@ -1,7 +1,7 @@
 const Banner = () => {
   return (
     <div
-      className="hero opacity-80 -mt-24 mb-12 min-w-full lg:min-h-screen relative"
+      className="hero opacity-90 -mt-24 mb-12 min-w-full lg:min-h-screen relative"
       style={{
         backgroundImage:
           "url(https://www.homeworkingclub.com/wp-content/uploads/2019/04/Sites-like-Upwork-for-freelancers.jpg)",

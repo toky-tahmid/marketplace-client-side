@@ -26,7 +26,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold  text-green-500">
         <NavLink
-          to="/addProduct"
+          to="/addjobs"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black underline" : ""
           }
@@ -37,7 +37,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold  text-green-500">
         <NavLink
-          to="/myCart"
+          to="/postedJobs"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black underline" : ""
           }
