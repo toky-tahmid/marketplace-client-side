@@ -1,0 +1,88 @@
+[
+  {
+    "title": "Responsive Website Development",
+    "deadline": "2023-11-15",
+    "price-range": "$150 - $200",
+    "category": "Web Development",
+    "description": "Develop responsive frontend components for a client's website using HTML, CSS, and JavaScript, ensuring a seamless user experience across devices."
+  },
+  {
+    "title": "Backend Logic Implementation",
+    "deadline": "2023-11-20",
+    "price-range": "$200 - $250",
+    "category": "Web Development",
+    "description": "Implement server-side logic, databases, and APIs to support the functionality of the client's web application, focusing on performance and security."
+  },
+  {
+    "title": "Database Optimization",
+    "deadline": "2023-11-25",
+    "price-range": "$250 - $300",
+    "category": "Web Development",
+    "description": "Optimize database queries, indexing, and data structures to enhance the overall performance and responsiveness of the client's web application."
+  },
+  {
+    "title": "CMS Integration",
+    "deadline": "2023-11-30",
+    "price-range": "$300 - $350",
+    "category": "Web Development",
+    "description": "Integrate a content management system (CMS) such as WordPress or Drupal, enabling the client to easily update and manage website content without technical expertise."
+  },
+
+  {
+    "title": "Social Media Content Creation",
+    "deadline": "2023-11-15",
+    "price-range": "$120 - $150",
+    "category": "Digital Marketing",
+    "description": "Create engaging social media posts, graphics, and captions tailored to the client's target audience, aiming to increase brand awareness and user engagement."
+  },
+  {
+    "title": "Email Marketing Campaign",
+    "deadline": "2023-11-20",
+    "price-range": "$150 - $180",
+    "category": "Digital Marketing",
+    "description": "Design and execute an email marketing campaign, including crafting compelling email copy, designing visually appealing templates, and tracking campaign performance metrics."
+  },
+  {
+    "title": "PPC Campaign Management",
+    "deadline": "2023-11-25",
+    "price-range": "$200 - $250",
+    "category": "Digital Marketing",
+    "description": "Manage a pay-per-click (PPC) advertising campaign, conducting keyword research, creating ad copies, and optimizing bids to maximize ROI and drive targeted traffic."
+  },
+  {
+    "title": "Social Media Analytics",
+    "deadline": "2023-11-30",
+    "price-range": "$180 - $220",
+    "category": "Digital Marketing",
+    "description": "Analyze social media metrics and user engagement data, providing insights and recommendations to refine the client's social media strategy for improved performance."
+  },
+
+  {
+    "title": "Logo Redesign",
+    "deadline": "2023-11-15",
+    "price-range": "$150 - $200",
+    "category": "Graphics Design",
+    "description": "Redesign the client's existing logo, incorporating modern design elements and ensuring versatility for various applications, such as digital and print media."
+  },
+  {
+    "title": "Packaging Design",
+    "deadline": "2023-11-20",
+    "price-range": "$200 - $250",
+    "category": "Graphics Design",
+    "description": "Create visually appealing packaging designs for the client's products, focusing on aesthetics, brand identity, and practicality in terms of product protection and information display."
+  },
+  {
+    "title": "Infographic Creation",
+    "deadline": "2023-11-25",
+    "price-range": "$250 - $300",
+    "category": "Graphics Design",
+    "description": "Design an informative and visually engaging infographic to communicate complex data or concepts related to the client's services or products, enhancing audience understanding."
+  },
+  {
+    "title": "Website Banner and Ad Designs",
+    "deadline": "2023-11-30",
+    "price-range": "$180 - $220",
+    "category": "Graphics Design",
+    "description": "Create eye-catching website banners and online advertisements, optimizing visuals and messaging to capture the audience's attention and drive clicks or conversions."
+  }
+]
