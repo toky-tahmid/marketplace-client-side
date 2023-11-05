@@ -47,7 +47,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold  text-green-500">
         <NavLink
-          to="/myCart"
+          to="/myBids"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black underline" : ""
           }
@@ -57,7 +57,7 @@ const Navbar = () => {
       </li>
       <li className="font-bold  text-green-500">
         <NavLink
-          to="/myCart"
+          to="/bidReq"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-black underline" : ""
           }

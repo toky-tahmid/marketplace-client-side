@@ -1,3 +1,5 @@
+import Visit from "../Visit/Visit";
+
 const ContactUs = () => {
   return (
     <>
@@ -23,6 +25,11 @@ const ContactUs = () => {
             src="https://html.creativegigstf.com/khuj/khuj/images/screen/screen-6.png"
             alt=""
           />
+          <img
+            className="absolute -right-24 -top-12"
+            src="https://html.creativegigstf.com/khuj/khuj/images/screen/screen-5.png"
+            alt=""
+          />
         </div>
         <div className="mt-20">
           <br />
@@ -43,11 +50,15 @@ const ContactUs = () => {
           </button>
         </div>
       </div>
+      <Visit></Visit>
+
       <div className="flex justify-evenly mt-10 py-24 bg-gradient-to-r from-red-300 to-purple-300 p-8 rounded-lg shadow-lg">
-        <div >
-          <h1 className="text-5xl font-bold text-white">Subscribe to Our <br /> Newsletter</h1>
+        <div>
+          <h1 className="text-5xl font-bold text-white">
+            Subscribe to Our <br /> Newsletter
+          </h1>
         </div>
-       
+
         <div className="relative flex h-12 mt-5 w-full min-w-[200px] max-w-[24rem]">
           <input
             type="email"
@@ -65,7 +76,6 @@ const ContactUs = () => {
           </label>
         </div>
       </div>
-      
     </>
   );
 };
