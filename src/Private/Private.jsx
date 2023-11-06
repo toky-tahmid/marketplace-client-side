@@ -9,7 +9,7 @@ const Private = ( {children} ) => {
     if (loading){
         return <span className="loading loading-spinner loading-lg"></span>
     }
-    if (user){
+    if (user?.email){
         return children
         
     }

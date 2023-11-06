@@ -1,56 +1,66 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const BidDetails = () => {
+    const data = useLoaderData();
+    const {email} = data
+    console.log(data);
+  const { user } = useContext(AuthContext);
+  console.log(user);
+  const userEmail = user.email;
+  console.log(userEmail);
   const handleAddJob = (event) => {
     event.preventDefault();
     const form = event.target;
+    const buyerEmail = form.buyerEmail.value;
     const email = form.email.value;
     const date = form.date.value;
     const title = form.title.value;
     const minimum = form.minimum.value;
     const newJobs = {
+      buyerEmail,
       email,
       date,
       title,
       minimum,
     };
     console.log(newJobs);
-    fetch('http://localhost:5000/myJobs',{
-        method: 'POST',
-        headers: {
-            'content-type': 'application/json'
-        },
-        body: JSON.stringify(newJobs),
+    fetch("http://localhost:5000/myJobs", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newJobs),
     })
-    .then(res =>res.json())
-    .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-        if(data.insertedId){
-            const Toast = Swal.mixin({
-                toast: true,
-                position: 'top-end',
-                showConfirmButton: false,
-                timer: 3000,
-                timerProgressBar: true,
-                didOpen: (toast) => {
-                  toast.addEventListener('mouseenter', Swal.stopTimer)
-                  toast.addEventListener('mouseleave', Swal.resumeTimer)
-                }
-              })
-              Toast.fire({
-                icon: 'success',
-                title: 'Job Post Added Successfully'
-              })
+        if (data.insertedId) {
+          const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+              toast.addEventListener("mouseenter", Swal.stopTimer);
+              toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+          });
+          Toast.fire({
+            icon: "success",
+            title: "Job Post Added Successfully",
+          });
         }
-    })
+      });
   };
 
-  const data = useLoaderData();
-  console.log(data);
+ 
   return (
     <>
-    {/* card */}
+      {/* card */}
       <div className="relative mx-auto flex flex-col -mt-20 text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
         <div className="p-6">
           <h5 className="block mb-2 text-2xl text-center antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
@@ -85,7 +95,7 @@ const BidDetails = () => {
                 type="email"
                 name="email"
                 className="mt-1 p-2 w-full bg-gray-100 rounded"
-                value="employer@example.com"
+                defaultValue={userEmail}
                 readOnly
               />
             </div>
@@ -95,9 +105,9 @@ const BidDetails = () => {
               </label>
               <input
                 type="email"
-                name="email"
+                name="buyerEmail"
                 className="mt-1 p-2 w-full bg-gray-100 rounded"
-                value="employer@example.com"
+                defaultValue={email}
                 readOnly
               />
             </div>
