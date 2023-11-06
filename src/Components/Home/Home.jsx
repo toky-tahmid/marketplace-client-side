@@ -6,7 +6,7 @@ import WhyChooseUs from "../WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
     const newJobs = useLoaderData()
-    console.log(newJobs);
+
     return (
         <div>
             <Banner></Banner>

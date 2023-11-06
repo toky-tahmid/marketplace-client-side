@@ -12,6 +12,7 @@ import AddJob from "./Components/AddJob/AddJob";
 import PostedJobs from "./Components/PostedJobs/PostedJobs";
 import BidReq from "./Components/BidReq/BidReq";
 import MyBids from "./Components/MyBids/MyBids";
+import BidDetails from "./Components/BIdDetails/BidDetails";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
       {
         path: "/bidReq",
         element: <BidReq></BidReq>,
+      },
+      {
+        path: "/jobs/:id",
+        element: <BidDetails></BidDetails>,
+        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
       },
        
       
