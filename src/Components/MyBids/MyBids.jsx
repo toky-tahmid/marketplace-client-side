@@ -36,7 +36,6 @@ const MyBids = () => {
             {jobs.map((job) => (
               <MyBidCard key={job._id}
               job={job}>
-                
               </MyBidCard>
             ))}
           </tbody>
