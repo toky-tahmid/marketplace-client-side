@@ -8,15 +8,13 @@ const PostUpdated = () => {
   console.log(posted);
   const { user } = useContext(AuthContext);
   console.log(user);
-
   const userEmail = user.email;
   console.log(userEmail);
-  const {_id,email,description,deadline,minimumPrice,title,category,maximumPrice} = posted;
+  const {_id,description,deadline,minimumPrice,title,category,maximumPrice} = posted;
 
-  const handleAddJob = (event) => {
+  const handleUpdateJob = (event) => {
     event.preventDefault();
     const form = event.target;
-    const email = form.email.value;
     const deadline = form.deadline.value;
     const description = form.description.value;
     const minimumPrice = form.minimumPrice.value;
@@ -24,7 +22,6 @@ const PostUpdated = () => {
     const category = form.category.value;
     const maximumPrice = form.maximumPrice.value;
     const newJobs = {
-      email,
       deadline,
       title,
       description,
@@ -33,8 +30,8 @@ const PostUpdated = () => {
       maximumPrice,
     };
     console.log(newJobs);
-    fetch("http://localhost:5000/jobs", {
-      method: "POST",
+    fetch(`http://localhost:5000/postUpdated/${_id}`, {
+      method: "PUT",
       headers: {
         "content-type": "application/json",
       },
@@ -43,7 +40,7 @@ const PostUpdated = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount>0) {
           const Toast = Swal.mixin({
             toast: true,
             position: "top-end",
@@ -57,7 +54,7 @@ const PostUpdated = () => {
           });
           Toast.fire({
             icon: "success",
-            title: "Job Post Added Successfully",
+            title: "Job Updated Successfully",
           });
         }
       });
@@ -66,7 +63,7 @@ const PostUpdated = () => {
     <div className="bg-gray-100 min-h-screen -mt-28 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-3xl font-bold mb-4 text-center">Update Job Info</h1>
-        <form onSubmit={handleAddJob}>
+        <form onSubmit={handleUpdateJob}>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-600">
               Email of the Employer
@@ -88,6 +85,7 @@ const PostUpdated = () => {
               name="title"
               className="mt-1 p-2 w-full rounded"
               placeholder="Enter job title"
+              defaultValue={title}
               required
             />
           </div>
@@ -99,6 +97,7 @@ const PostUpdated = () => {
               type="date"
               name="deadline"
               className="mt-1 p-2 w-full rounded"
+              defaultValue={deadline}
               required
             />
           </div>
@@ -112,6 +111,7 @@ const PostUpdated = () => {
               className="mt-1 p-2 w-full rounded"
               placeholder="Enter job description"
               required
+              defaultValue={description}
             ></textarea>
           </div>
 
@@ -123,6 +123,7 @@ const PostUpdated = () => {
               className="w-full px-4 py-2 rounded "
               name="category"
               required
+              defaultValue={category}
             >
               <option value="Web Development">Web Development</option>
               <option value="Digital Marketing">Digital Marketing </option>
@@ -135,11 +136,12 @@ const PostUpdated = () => {
                 Minimum Price
               </label>
               <input
-                type="number"
+                type="text"
                 name="minimumPrice"
                 className="mt-1 p-2 w-full rounded"
                 placeholder="Min price"
                 required
+                defaultValue={minimumPrice}
               />
             </div>
             <div>
@@ -147,19 +149,19 @@ const PostUpdated = () => {
                 Maximum Price
               </label>
               <input
-                type="number"
+                type="text"
                 name="maximumPrice"
                 className="mt-1 p-2 w-full rounded"
                 placeholder="Max price"
                 required
+                defaultValue={maximumPrice}
               />
             </div>
           </div>
           <button
             type="submit"
-            className="mt-4 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white p-3 rounded hover:from-pink-600 hover:to-purple-600 transition duration-300"
-          >
-            Add Job
+            className="mt-4 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white p-3 rounded hover:from-pink-600 hover:to-purple-600 transition duration-300">
+           Update Job
           </button>
         </form>
       </div>

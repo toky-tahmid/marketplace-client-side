@@ -54,8 +54,9 @@ const TabsData = ({ newJobs }) => {
                     DeadLine:{job?.deadline}
                   </h5>
                   <h5 className="text-xl antialiased font-semibold">
-            Price-Range : <span>{job?.minimumPrice}</span> - <span>{job?.maximumPrice}</span>
-          </h5>
+                    Price-Range : <span>{job?.minimumPrice}</span> -{" "}
+                    <span>{job?.maximumPrice}</span>
+                  </h5>
                   <p className="block font-sans text-base antialiased font-light leading-relaxed text-inherit">
                     {job.description}
                   </p>
