@@ -8,7 +8,7 @@ const PostedJobs = () => {
   const [postedJobs, setPostedJobs] = useState([]);
 
   const fetchJobs = () => {
-    fetch(`http://localhost:5000/jobs?email=${user?.email}`)
+    fetch(`http://localhost:5000/jobs?email=${user?.email}`,{Credential:'include'})
       .then((res) => res.json())
       .then((data) => setPostedJobs(data));
   };

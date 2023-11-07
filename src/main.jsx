@@ -38,12 +38,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/addjobs",
-        element: <AddJob></AddJob>,
+        element:<Private><AddJob></AddJob></Private>,
       },
       {
         path: "/postedJobs",
         element: <PostedJobs></PostedJobs>,
-        // loader:()=>fetch('http://localhost:5000/jobs')
+
       },
       {
         path: "/myBids",

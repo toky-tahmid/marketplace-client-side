@@ -5,7 +5,6 @@ import { useContext } from "react";
 const AddJob = () => {
   const { user } = useContext(AuthContext);
   console.log(user);
-
   const userEmail = user.email;
   console.log(userEmail);
 
