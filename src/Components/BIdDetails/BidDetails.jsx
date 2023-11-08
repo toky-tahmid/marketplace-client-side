@@ -31,7 +31,7 @@ const BidDetails = () => {
       status,
     };
     console.log(newJobs);
-    fetch("http://localhost:5000/myJobs", {
+    fetch("https://server-site-theta-two.vercel.app/myJobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

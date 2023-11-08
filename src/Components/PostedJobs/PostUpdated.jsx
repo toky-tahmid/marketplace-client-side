@@ -31,7 +31,7 @@ const PostUpdated = () => {
       maximumPrice,
     };
     console.log(newJobs);
-    fetch(`http://localhost:5000/postUpdated/${_id}`, {
+    fetch(`https://server-site-theta-two.vercel.app/postUpdated/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

@@ -15,7 +15,7 @@ const BidRequests = () => {
     );
   }, []);
   const handleApprove = (bidId) => {
-    fetch(`http://localhost:5000/status/${bidId}`, {
+    fetch(`https://server-site-theta-two.vercel.appstatus/${bidId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: true }),
@@ -32,7 +32,7 @@ const BidRequests = () => {
     );
   };
   const handleReject = (bidId) => {
-    fetch(`http://localhost:5000/status/${bidId}`, {
+    fetch(`https://server-site-theta-two.vercel.app/status/${bidId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: false }),

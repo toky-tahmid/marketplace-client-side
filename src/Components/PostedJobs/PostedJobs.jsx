@@ -9,7 +9,7 @@ const PostedJobs = () => {
   const [postedJobs, setPostedJobs] = useState([]);
 
   const fetchJobs = () => {
-    fetch(`http://localhost:5000/jobs?email=${user?.email}`,{Credential:'include'})
+    fetch(`https://server-site-theta-two.vercel.app/jobs?email=${user?.email}`,{Credential:'include'})
       .then((res) => res.json())
       .then((data) => setPostedJobs(data));
   };
@@ -27,7 +27,7 @@ const PostedJobs = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/jobs/${_id}`, {
+        fetch(`https://server-site-theta-two.vercel.app/jobs/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -29,7 +29,7 @@ const AddJob = () => {
       maximumPrice,
     };
     console.log(newJobs);
-    fetch("http://localhost:5000/jobs", {
+    fetch("https://server-site-theta-two.vercel.app/jobs", {
       method: "POST",
       headers: {
         "content-type": "application/json",

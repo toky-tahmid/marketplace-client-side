@@ -5,12 +5,15 @@ const MyBids = () => {
   const { user } = useContext(AuthContext);
 
   const [jobs, setJobs] = useState([]);
-  const url = `http://localhost:5000/myJobs?email=${user?.email}`;
+  const url = `https://server-site-theta-two.vercel.app/myJobs?email=${user?.email}`;
   useEffect(() => {
+    if(
+      user?.email
+    )
     fetch(url)
       .then((res) => res.json())
       .then((data) => setJobs(data));
-  }, []);
+  }, [user?.email,url]);
   console.log(jobs);
 
   return (
@@ -44,7 +47,7 @@ const MyBids = () => {
                   <h5 className="w-full mr-10">{bid.title}</h5>
                   <h5 className="w-full mr-10">{bid.buyerEmail}</h5>
                   <h5 className="w-full mr-10">{bid.date}</h5>
-                  
+
                   <div>
                     {bid.status == true ? (
                       <div
@@ -54,15 +57,11 @@ const MyBids = () => {
                         approved
                       </div>
                     ) : bid.status == false ? (
-                      <div
-                      className="bg-[#eb4444e8]  hover:bg-red-600 font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
-                      >
+                      <div className="bg-[#eb4444e8]  hover:bg-red-600 font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded">
                         rejected
                       </div>
                     ) : (
-                      <button
-                        className="bg-orange-400  hover:bg-orange-600  font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
-                      >
+                      <button className="bg-orange-400  hover:bg-orange-600  font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded">
                         pending
                       </button>
                     )}

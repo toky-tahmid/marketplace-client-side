@@ -25,7 +25,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader:()=>fetch('http://localhost:5000/jobs')
+        loader:()=>fetch('https://server-site-theta-two.vercel.app/jobs')
        
       },
       {
@@ -53,18 +53,18 @@ const router = createBrowserRouter([
       {
         path: "/bidReq",
         element: <Private><BidReq></BidReq></Private>,
-        loader:()=>fetch("http://localhost:5000/myJobs")
+        loader:()=>fetch("https://server-site-theta-two.vercel.app/myJobs")
       },
       {
         path: "/postUpdated/:id",
         element: <Private><PostUpdated></PostUpdated></Private>,
-        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader:({params})=>fetch(`https://server-site-theta-two.vercel.app/jobs/${params.id}`)
 
       },
       {
         path: "/jobs/:id",
         element: <Private><BidDetails></BidDetails></Private>,
-        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader:({params})=>fetch(`https://server-site-theta-two.vercel.app/jobs/${params.id}`)
       },
        
       
