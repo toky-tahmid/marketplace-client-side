@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const PostUpdated = () => {
   const posted = useLoaderData();
@@ -61,6 +62,11 @@ const PostUpdated = () => {
   };
   return (
     <div className="bg-gray-100 min-h-screen -mt-28 flex items-center justify-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MarketPlace||Posted Updated</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-3xl font-bold mb-4 text-center">Update Job Info</h1>
         <form onSubmit={handleUpdateJob}>

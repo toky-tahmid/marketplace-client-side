@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const PostedJobs = () => {
   const { user } = useContext(AuthContext);
@@ -42,6 +43,11 @@ const PostedJobs = () => {
   };
   return (
     <div>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MarketPlace||Posted Jobs</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="grid-col-1 lg:grid grid-cols-2 gap-3 ml-20">
         {postedJobs.map((postedJob) => (
           <div key={postedJob._id} className="mb-8">

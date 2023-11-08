@@ -2,6 +2,7 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
     const { logInUser, signInWithGoogle } = useContext(AuthContext);
@@ -38,6 +39,11 @@ const Login = () => {
     };
   return (
     <div className="min-w-screen flex items-center justify-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MarketPlace || Login</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
     <div className="relative flex flex-col rounded-xl bg-gradient-to-r  from-pink-500 to-red-500 text-black shadow-lg p-8">
       <h4 className="ml-20 text-4xl font-bold text-white ">
         Login Now!!

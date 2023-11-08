@@ -13,8 +13,9 @@ const WhyChooseUs = () => {
       <div className="flex justify-evenly mb-20">
         <div className="text-center mt-48">
           <h1 className="text-4xl font-bold ">
-            <span className="font-bold text-green-500">MARKETPLACE</span>{" "}
+            <span className=" antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">MARKETPLACE</span>{" "}
             Website Only For <br /> Your Dream Jobs
+           
           </h1>
           <h3 className="text-xl font-semibold">
             Proficiency develop empowered communicate rather than <br />{" "}

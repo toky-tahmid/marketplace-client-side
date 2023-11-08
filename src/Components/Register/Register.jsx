@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const { createUser, UpdateProfile } = useContext(AuthContext);
@@ -38,6 +39,11 @@ const Register = () => {
   };
   return (
     <div className="min-w-screen flex items-center justify-center">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Market || Register</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="relative flex flex-col rounded-xl bg-gradient-to-r  from-pink-500 to-red-500 text-black shadow-lg p-8">
         <h4 className="ml-14 text-4xl font-bold text-white ">Register Now!!</h4>
         {errorMessage && <p className="text-error">{errorMessage}</p>}

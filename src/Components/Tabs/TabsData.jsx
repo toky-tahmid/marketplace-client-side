@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const TabsData = ({ newJobs }) => {
   console.log(newJobs);
+  const { user } = useContext(AuthContext);
+  const userEmail = user?.email;
   let tabs = [
     { id: "Web Development", label: "Web Development" },
     { id: "Digital Marketing", label: "Digital Marketing" },
@@ -61,12 +64,20 @@ const TabsData = ({ newJobs }) => {
                     {job.description}
                   </p>
                 </div>
-
-                <Link to={`/jobs/${job._id}`}>
-                  <button className="rounded-b-lg w-full bg-purple-300 py-3 px-6 text-white text-sm font-bold uppercase hover:bg-purple-500 focus:outline-none focus:ring focus:ring-pink-200 transition duration-300">
+                {userEmail !== job?.email ? (
+                  <Link to={`/jobs/${job._id}`}>
+                    <button className="rounded-b-lg w-full bg-gradient-to-r from-purple-500 to-red-400 py-3 px-6 text-white text-sm font-bold uppercase hover:bg-purple-500 focus:outline-none focus:ring focus:ring-pink-200 transition duration-300">
+                      Bid Now
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    className="rounded-b-lg w-full bg-gradient-to-r from-purple-500 to-red-400 py-3 px-6 text-white text-sm font-bold uppercase hover:bg-purple-500 focus:outline-none focus:ring focus:ring-pink-200 transition duration-300"
+                    disabled
+                  >
                     Bid Now
                   </button>
-                </Link>
+                )}
               </div>
             </div>
           </div>

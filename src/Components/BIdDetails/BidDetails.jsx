@@ -1,12 +1,14 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import {  useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Helmet } from "react-helmet";
 
 const BidDetails = () => {
-    const data = useLoaderData();
-    const {email} = data
-    console.log(data);
+  const navigate = useNavigate()
+  const data = useLoaderData();
+  const { email } = data;
+  console.log(data);
   const { user } = useContext(AuthContext);
   console.log(user);
   const userEmail = user.email;
@@ -19,12 +21,14 @@ const BidDetails = () => {
     const date = form.date.value;
     const title = form.title.value;
     const minimum = form.minimum.value;
+    const status = "pending";
     const newJobs = {
       buyerEmail,
       email,
       date,
       title,
       minimum,
+      status,
     };
     console.log(newJobs);
     fetch("http://localhost:5000/myJobs", {
@@ -53,14 +57,20 @@ const BidDetails = () => {
             icon: "success",
             title: "Job Post Added Successfully",
           });
+         
         }
+        navigate('/myBids')
       });
   };
 
- 
   return (
     <>
-      {/* card */}
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MarketPlace || Bid Details</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
+
       <div className="relative mx-auto flex flex-col -mt-20 text-gray-700 bg-white shadow-md w-96 rounded-xl bg-clip-border">
         <div className="p-6">
           <h5 className="block mb-2 text-2xl text-center antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
@@ -149,12 +159,14 @@ const BidDetails = () => {
                 />
               </div>
             </div>
-            <button
-              type="submit"
-              className="mt-4 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white p-3 rounded hover:from-pink-600 hover:to-purple-600 transition duration-300"
-            >
-              Bid the project
-            </button>
+            
+              <button
+                type="submit"
+                className="mt-4 w-full bg-gradient-to-r from-pink-500 to-purple-500 text-white p-3 rounded hover:from-pink-600 hover:to-purple-600 transition duration-300"
+              >
+                Bid the project
+              </button>
+        
           </form>
         </div>
       </div>

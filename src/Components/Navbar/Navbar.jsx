@@ -13,7 +13,7 @@ const Navbar = () => {
   };
   const navLinks = (
     <>
-      <li className="font-bold  text-green-500">
+      <li className="block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
@@ -24,7 +24,7 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li className="font-bold  text-green-500">
+      <li className="block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/addjobs"
           className={({ isActive, isPending }) =>
@@ -35,7 +35,7 @@ const Navbar = () => {
           Add job
         </NavLink>
       </li>
-      <li className="font-bold  text-green-500">
+      <li className="block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/postedJobs"
           className={({ isActive, isPending }) =>
@@ -45,7 +45,7 @@ const Navbar = () => {
           My posted jobs
         </NavLink>
       </li>
-      <li className="font-bold  text-green-500">
+      <li className="block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/myBids"
           className={({ isActive, isPending }) =>
@@ -55,7 +55,7 @@ const Navbar = () => {
           My Bids
         </NavLink>
       </li>
-      <li className="font-bold  text-green-500">
+      <li className=" block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/bidReq"
           className={({ isActive, isPending }) =>
@@ -65,7 +65,7 @@ const Navbar = () => {
           Bid Requests
         </NavLink>
       </li>
-      <li className="font-bold text-green-500">
+      <li className="block mb-2 text-sm antialiased font-bold leading-snug tracking-normal text-gray-900 bg-gradient-to-r from-purple-500 to-red-400 text-transparent bg-clip-text">
         <NavLink
           to="/login"
           className={({ isActive, isPending }) =>

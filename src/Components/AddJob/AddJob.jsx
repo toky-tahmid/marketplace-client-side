@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useContext } from "react";
+import { Helmet } from "react-helmet";
 
 const AddJob = () => {
   const { user } = useContext(AuthContext);
@@ -59,6 +60,11 @@ const AddJob = () => {
   };
   return (
     <div className="bg-gray-100 min-h-screen -mt-28 flex items-center justify-center">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>MarketPlace || Add Job</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h1 className="text-3xl font-bold mb-4 text-center">Add Job</h1>
         <form onSubmit={handleAddJob}>
