@@ -1,77 +1,87 @@
-import { useContext, useEffect, useState } from "react";
+import { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Helmet } from "react-helmet";
+
 const MyBids = () => {
   const { user } = useContext(AuthContext);
-
   const [jobs, setJobs] = useState([]);
-  const url = `https://server-site-theta-two.vercel.app/myJobs?email=${user?.email}`;
+  const [sortField, setSortField] = useState("date");
+
+  const url = `https://server-site-theta-two.vercel.app/myJobs?email=${user?.email}&sort=${sortField}`;
+
   useEffect(() => {
-    if(
-      user?.email
-    )
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setJobs(data));
-  }, [user?.email,url]);
-  console.log(jobs);
+    if (user?.email) {
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => setJobs(data));
+    }
+  }, [user?.email, sortField, url]);
 
   return (
-    <div className=" w-full -mt-24 mx-auto duration-300">
+    <div className="container mx-auto mt-8">
       <Helmet>
         <meta charSet="utf-8" />
-        <title>MarketPlace||My Bids</title>
+        <title>MarketPlace || My Bids</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <body className="flex items-center justify-center">
-        <div className="container duration-300">
-          <div className="w-full mx-auto bg-white rounded-2xl overflow-hidden sm:shadow-lg my-5 duration-300">
-            <div className=" xl:block bg-[#19a4633a] duration-300">
-              <div className="flex  items-center justify-between font-semibold border border-gray-100 lg:px-10 px-4 py-5">
-                <div className=" flex  justify-around w-1/2 mx-auto ">
-                  <h5 className=" ">Job Name</h5>
-                  <h5 className=" ">Email</h5>
-                </div>
-                <div className=" flex items-center justify-around  w-1/2 mx-auto  ">
-                  <h5 className="ml-20">Date </h5>
-                  <h5 className=""> Status </h5>
-                </div>
-              </div>
-            </div>
-            <div className="flex-1 sm:flex-none">
-              {jobs?.map((bid) => (
-                <div
-                  key={bid._id}
-                  className={`flex flex-col xl:flex-row items-start xl:items-center justify-start xl:justify-between border border-gray-100 hover:bg-[#19a4630c] px-10 py-5 duration-300 `}
-                >
-                  <h5 className="w-full mr-10">{bid.title}</h5>
-                  <h5 className="w-full mr-10">{bid.buyerEmail}</h5>
-                  <h5 className="w-full mr-10">{bid.date}</h5>
-
-                  <div>
-                    {bid.status == true ? (
-                      <div
-                        aria-disabled
-                        className="bg-[#19a463] hover:bg-green-600   font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded"
-                      >
-                        approved
-                      </div>
-                    ) : bid.status == false ? (
-                      <div className="bg-[#eb4444e8]  hover:bg-red-600 font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded">
-                        rejected
-                      </div>
-                    ) : (
-                      <button className="bg-orange-400  hover:bg-orange-600  font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-full rounded">
-                        pending
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-2xl font-semibold">My Bids</h1>
+        <div className="flex items-center space-x-4">
+          <label className="text-sm font-medium">Sort By:</label>
+          <select
+            className="border rounded px-2 py-1"
+            value={sortField}
+            onChange={(e) => setSortField(e.target.value)}
+          >
+            <option value="date">Date</option>
+            <option value="status">Status</option>
+          </select>
         </div>
-      </body>
+      </div>
+      <div className="w-full mx-auto duration-300">
+        <table className="w-full bg-white rounded-lg overflow-hidden shadow-lg my-5">
+          <thead className="bg-[#19a4633a]">
+            <tr className="text-left text-white font-semibold">
+              <th className="py-3 px-6">Job Name</th>
+              <th className="py-3 px-6">Email</th>
+              <th className="py-3 px-6">Date</th>
+              <th className="py-3 px-6">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {jobs?.map((bid) => (
+              <tr
+                key={bid._id}
+                className="border-b border-gray-200 hover:bg-[#19a4630c]"
+              >
+                <td className="py-4 px-6">{bid.title}</td>
+                <td className="py-4 px-6">{bid.buyerEmail}</td>
+                <td className="py-4 px-6">{bid.date}</td>
+                <td className="py-4 px-6">
+                  {bid.status == true ? (
+                    <div
+                      aria-disabled
+                      className="bg-green-500 font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-44 rounded"
+                    >
+                      approved
+                    </div>
+                  ) : bid.status == false ? (
+                    <div
+                      className="bg-[#eb4444e8] hover:bg-red-500 font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-44 rounded"
+                    >
+                      rejected
+                    </div>
+                  ) : (
+                    <button className="bg-orange-400 hover:bg-orange-600 font-primary font-semibold text-center text-white px-7 md:px-12 py-2 md:py-3 mt-7 w-44 rounded">
+                      pending
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };
