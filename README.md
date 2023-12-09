@@ -1,8 +1,5 @@
 Website name:MarketPlace
-website Link: 
-
-Q.1-Add at least 5 mentioning different features and functionalities of your website?
-Ans:
+website Link: https://client-site-1f3aa.web.app/
 
 1.Home: In the Home page there is a navbar that shows the routes to go thorough another page. there is a banner some jobs and some details about Us and a footer the jobs are dynamically shown.
 
