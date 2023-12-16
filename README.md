@@ -7,7 +7,7 @@ website Link: https://client-site-1f3aa.web.app/
 1.Home Page:
 The homepage features a sophisticated navigation bar, delineating seamless routes to various sections. A prominent banner greets visitors, providing a visually engaging introduction. Additionally, job listings dynamically populate the page, offering a real-time glimpse into available opportunities. Comprehensive details about our organization are thoughtfully presented. A strategically placed footer enhances navigation convenience.
 
-2.Add Product:
+2.Add jobs:
 Accessible through a secure and private route, users can effortlessly contribute to our platform by manually adding products via a meticulously designed form. These additions seamlessly integrate into the job listings, ensuring immediate visibility. Furthermore, users can conveniently track and manage their contributed products within the "My Added Jobs" section.
 
 3.Login:
